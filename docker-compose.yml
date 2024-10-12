@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: plot-from-csv-backend
+    restart: on-failure
+    ports:
+      - 8000:8000
+    env_file: backend/.env
+    volumes:
+      - ./backend/src:/app/src
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: plot-from-csv-frontend
+    restart: on-failure
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/app/src
+
+networks:
+  default:
+    driver: bridge

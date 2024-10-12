@@ -1,0 +1,36 @@
+.container {
+  z-index: 100;
+  position: fixed;
+  height: 100svh;
+  width: 200px;
+  padding: 2 rem;
+  border-radius: 8px;
+  border: 1px solid #efefef;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  transform: translateX(-250px);
+  transition: 0.5s ease;
+  box-sizing: border-box;
+}
+
+.container.active {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.datagrid {
+  height: 100svh;
+  width: 100%;
+}
+
+.closeButton {
+  z-index: 110;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
